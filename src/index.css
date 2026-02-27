@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-cream: #f5f2eb;
+  --color-teal: #4a9e8c;
+  --color-charcoal: #1a1a1a;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Source Serif 4', serif;
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+}
+
+/* Monospace font */
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Serif font */
+.font-serif {
+  font-family: 'Noto Serif SC', 'Source Serif 4', serif;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+  75% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-flicker {
+  animation: flicker 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-teal);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3d8574;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-teal);
+  color: white;
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-slideUp,
+  .animate-flicker,
+  .animate-float {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Superscript styling */
+sup {
+  font-size: 0.6em;
+  vertical-align: super;
+  line-height: 0;
+}
+
+sub {
+  font-size: 0.6em;
+  vertical-align: sub;
+  line-height: 0;
+}
